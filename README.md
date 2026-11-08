@@ -83,6 +83,13 @@ invalidation, so a frame redraws the canvas without recomposing the screen.
 the game, plays it with a few taps and saves screenshots into `docs/screenshots`.
 Windows only; the emulator and system image must be installed in the Android SDK.
 
+## Release signing
+
+The upload key is not in the repository. `app/build.gradle.kts` reads
+`~/.skydodger/keystore.properties` (format in `keystore.properties.example`) and signs the
+release build when that file exists. Without it `assembleRelease` still succeeds and produces
+an unsigned APK, so a fresh clone and CI work for anyone who does not own the key.
+
 ## Roadmap
 
 - [ ] Sound effects and haptic feedback on flap and crash
